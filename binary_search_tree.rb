@@ -29,20 +29,20 @@ class Tree
       root
     end
   
-    def insert(num, node)
+    def insert(value, node)
       if root.nil?
-        self.root = Node.new(num)
-      elsif num > node.data 
+        self.root = Node.new(value)
+      elsif value > node.data 
         if node.right.nil?
-          node.right = Node.new(num)
+          node.right = Node.new(value)
         else
-          insert(num, node.right)
+          insert(value, node.right)
         end
-      elsif num < node.data
+      elsif value < node.data
         if node.left.nil?
-          node.left = Node.new(num)
+          node.left = Node.new(value)
         else
-          insert(num, node.left)
+          insert(value, node.left)
         end
       end
       root
