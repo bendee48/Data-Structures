@@ -48,22 +48,35 @@ class Tree
     root
   end
 
-  def delete(value, node)
-    if value > node.data
-      if node.right.data == value
-        node.right = nil
-        return
-      end
-      delete(value, node.right)
-    elsif value < node.data
-      if node.left.data == value
-        node.left = nil
-        return
-      end
-      delete(value, node.left)
-    end
-  end
+  # def delete(value, node)
+  #   if value > node.data
+  #     if node.right.data == value
+  #       node.right = nil
+  #       return
+  #     end
+  #     delete(value, node.right)
+  #   elsif value < node.data
+  #     if node.left.data == value
+  #       node.left = nil
+  #       return
+  #     end
+  #     delete(value, node.left)
+  #   end
+  # end
   
+  def level_order(tree)
+    queue = []
+    values = []
+    queue << tree
+    while !queue.empty?
+      node = queue.shift
+      block_given? ? yield(node) : values << node.data
+      queue << node.left if node.left
+      queue << node.right if node.right
+    end
+    values if !block_given?
+  end
+
 end
 
 pop = Tree.new
