@@ -99,17 +99,17 @@ class Tree
 
   def inorder(node, values)
     return if node.nil?
-    preorder(node.left, values) { |node| yield(node) if block_given? }
+    inorder(node.left, values) { |x| yield(x) if block_given? }
     yield(node) if block_given?  
     values << node.data  
-    preorder(node.right, values) { |node| yield(node) if block_given? }
+    inorder(node.right, values) { |x| yield(x) if block_given? }
     values if !block_given?
   end
 
   def postorder(node, values)
     return if node.nil?
-    preorder(node.left, values) { |node| yield(node) if block_given? }   
-    preorder(node.right, values) { |node| yield(node) if block_given? }
+    postorder(node.left, values) { |node| yield(node) if block_given? }   
+    postorder(node.right, values) { |node| yield(node) if block_given? }
     yield(node) if block_given? 
     values << node.data
     values if !block_given?
