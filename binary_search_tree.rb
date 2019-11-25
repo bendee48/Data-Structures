@@ -70,6 +70,10 @@ class Tree
     self.root = nil
     build_tree(values)
   end
+
+  def find(value)
+    level_order { |node| return node if node.data == value }
+  end
   
   def level_order(tree)
     queue = []
