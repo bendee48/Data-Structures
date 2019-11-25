@@ -63,6 +63,13 @@ class Tree
   #     delete(value, node.left)
   #   end
   # end
+
+  def delete(value)
+    values = level_order
+    values.delete(value)
+    self.root = nil
+    build_tree(values)
+  end
   
   def level_order(tree)
     queue = []
