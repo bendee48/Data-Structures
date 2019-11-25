@@ -88,6 +88,33 @@ class Tree
     values if !block_given?
   end
 
+  def preorder(node, values)
+    return if node.nil?
+    yield(node) if block_given?
+    values << node.data
+    preorder(node.left, values) { |node| yield(node) if block_given? }
+    preorder(node.right, values) { |node| yield(node) if block_given? }
+    values if !block_given?
+  end
+
+  def inorder(node, values)
+    return if node.nil?
+    preorder(node.left, values) { |node| yield(node) if block_given? }
+    yield(node) if block_given?  
+    values << node.data  
+    preorder(node.right, values) { |node| yield(node) if block_given? }
+    values if !block_given?
+  end
+
+  def postorder(node, values)
+    return if node.nil?
+    preorder(node.left, values) { |node| yield(node) if block_given? }   
+    preorder(node.right, values) { |node| yield(node) if block_given? }
+    yield(node) if block_given? 
+    values << node.data
+    values if !block_given?
+  end
+
 end
 
 pop = Tree.new
