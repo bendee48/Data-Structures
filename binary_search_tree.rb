@@ -72,31 +72,27 @@ class Node
       values if !block_given?
     end
   
-    def preorder(node, values)
-      return if node.nil?
-      yield(node) if block_given?
-      values << node.data
-      preorder(node.left, values) { |node| yield(node) if block_given? }
-      preorder(node.right, values) { |node| yield(node) if block_given? }
-      values if !block_given?
-    end
-  
-    def inorder(node, values)
-      return if node.nil?
-      inorder(node.left, values) { |x| yield(x) if block_given? }
-      yield(node) if block_given?  
-      values << node.data  
-      inorder(node.right, values) { |x| yield(x) if block_given? }
-      values if !block_given?
-    end
-  
-    def postorder(node, values)
-      return if node.nil?
-      postorder(node.left, values) { |node| yield(node) if block_given? }   
-      postorder(node.right, values) { |node| yield(node) if block_given? }
-      yield(node) if block_given? 
-      values << node.data
-      values if !block_given?
+    ["pre", "in", "post"].each do |name|
+      define_method("#{name}order") do |node, values, &block|
+        return if node.nil?
+        if name == "pre"
+          block.call(node) if block
+          values << node.data
+          preorder(node.left, values) { |node| block.call(node) if block }
+          preorder(node.right, values) { |node| block.call(node) if block }
+        elsif name == "in"
+          inorder(node.left, values) { |node| block.call(node) if block }
+          block.call(node) if block  
+          values << node.data  
+          inorder(node.right, values) { |node| block.call(node) if block }
+        elsif name == "post"
+          postorder(node.left, values) { |node| block.call(node) if block }   
+          postorder(node.right, values) { |node| block.call(node) if block }
+          block.call(node) if block 
+          values << node.data
+        end
+        values if !block
+      end
     end
   
     # Returns the number of levels beneath given node
