@@ -30,25 +30,6 @@ class Node
       root
     end
   
-    def insert(value, node)
-      if root.nil?
-        self.root = Node.new(value)
-      elsif value > node.data 
-        if node.right.nil?
-          node.right = Node.new(value)
-        else
-          insert(value, node.right)
-        end
-      elsif value < node.data
-        if node.left.nil?
-          node.left = Node.new(value)
-        else
-          insert(value, node.left)
-        end
-      end
-      root
-    end
-  
     def delete(value)
       values = level_order
       values.delete(value)
@@ -96,7 +77,7 @@ class Node
     end
   
     # Returns the number of levels beneath given node
-    def depth(node, count, arr)
+    def depth(node, count=0, arr=[])
       return arr.max if node.nil?
       arr << count
       depth(node.left, count + 1, arr)
@@ -114,6 +95,27 @@ class Node
       new_tree = inorder(root, [])
       new_tree = new_tree.rotate(new_tree.size / 2)
       build_tree(new_tree)
+    end
+
+    private
+
+    def insert(value, node)
+      if root.nil?
+        self.root = Node.new(value)
+      elsif value > node.data 
+        if node.right.nil?
+          node.right = Node.new(value)
+        else
+          insert(value, node.right)
+        end
+      elsif value < node.data
+        if node.left.nil?
+          node.left = Node.new(value)
+        else
+          insert(value, node.left)
+        end
+      end
+      root
     end
     
   end
