@@ -123,6 +123,12 @@ class Tree
     depth(node.right, count + 1, arr)
   end
 
+  def balanced?(tree)
+    left = depth(tree.left, 0, [])
+    right = depth(tree.right, 0, [])
+    (left - right).abs <= 1
+  end
+
 end
 
 pop = Tree.new
