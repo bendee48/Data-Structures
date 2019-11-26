@@ -22,31 +22,31 @@
   - `#insert_at(index, node)`: Inserts Node at given index within list. At the front of the list if index is < 1 or at the end if index is > list size.
   - `#remove_at(index)`: Removes node at given index within list. Removes the first node if index is < 1 or removes last node if given index is > list size.
 
-  ## Ruby - Data Structures - Binary Search Tree
+## Ruby - Data Structures - Binary Search Tree
 
-  **A Ruby implementation of a binary search tree.**
+**A Ruby implementation of a binary search tree.**
 
-  - `Node.new(data)` instantiates a new node with `@data`, `@right` and `@left` instance variables.
-    - Node instances can be compared directly without having to access their data value.
+- `Node.new(data)` instantiates a new node with `@data`, `@right` and `@left` instance variables.
+- Node instances can be compared directly without having to access their data value.
 
-  - `Tree.new` instantiates a new Tree instance. Sets `@root` variable to nil.
+- `Tree.new` instantiates a new Tree instance. Sets `@root` variable to nil.
 
-  **Available Tree methods:**
+**Available Tree methods:**
 
-    - `#build_tree(data)`: Builds a binary tree from an array.
-    - `#delete(value)`: Deletes the given value from the tree.
-    - `#find(value)`: Returns the node from the tree that matches the given value.
-    - `#level_order`: Returns an array of node data from the tree in level order.
-      - `#level_order { |item| block }`: If a block is given each node is passed to the block in level order as they're found.
-    - `#preorder(node, values)`: Returns an array of node data from the tree in preorder.
-      - `#preorder(node, values) { |item| block }`: If a block is given each node is passed to the block in preorder as they're found.
-     - `#inorder(node, values)`: Returns an array of node data from the tree inorder.
-      - `#inorder(node, values) { |item| block }`: If a block is given each node is passed to the block inorder as they're found.
-     - `#postorder(node, values)`: Returns an array of node data from the tree in postorder.
-      - `#postorder(node, values) { |item| block }`: If a block is given each node is passed to the block in postorder as they're found.
-    - `#depth(node)`: Returns the number of levels beneath the given node.
-    - `#balanced?`: Returns whether the tree is balanced or not.
-    - `#rebalance`: Rebalances the binary tree.
+- `#build_tree(data)`: Builds a binary tree from an array.
+- `#delete(value)`: Deletes the given value from the tree.
+- `#find(value)`: Returns the node from the tree that matches the given value.
+- `#level_order`: Returns an array of node data from the tree in level order.
+  - `#level_order { |item| block }`: If a block is given each node is passed to the block in level order as they're found.
+- `#preorder(node, values)`: Returns an array of node data from the tree in preorder.
+  - `#preorder(node, values) { |item| block }`: If a block is given each node is passed to the block in preorder as they're found.
+- `#inorder(node, values)`: Returns an array of node data from the tree inorder.
+  - `#inorder(node, values) { |item| block }`: If a block is given each node is passed to the block inorder as they're found.
+- `#postorder(node, values)`: Returns an array of node data from the tree in postorder.
+  - `#postorder(node, values) { |item| block }`: If a block is given each node is passed to the block in postorder as they're found.
+- `#depth(node)`: Returns the number of levels beneath the given node.
+- `#balanced?`: Returns whether the tree is balanced or not.
+- `#rebalance`: Rebalances the binary tree.
 
 
 
