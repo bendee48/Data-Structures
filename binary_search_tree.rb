@@ -115,6 +115,14 @@ class Tree
     values if !block_given?
   end
 
+  # Returns the number of levels beneath given node
+  def depth(node, count, arr)
+    return arr.max if node.nil?
+    arr << count
+    depth(node.left, count + 1, arr)
+    depth(node.right, count + 1, arr)
+  end
+
 end
 
 pop = Tree.new
