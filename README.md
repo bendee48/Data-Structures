@@ -27,7 +27,7 @@
 **A Ruby implementation of a binary search tree.**
 
 - `Node.new(data)` instantiates a new node with `@data`, `@right` and `@left` instance variables.
-- Node instances can be compared directly without having to access their data value.
+  - *Node instances can be compared directly without having to access their data value.*
 
 - `Tree.new` instantiates a new Tree instance. Sets `@root` variable to nil.
 
