@@ -1,6 +1,6 @@
-The Odin Project
+#The Odin Project
 
-Data Structures - Linked Lists - Ruby
+##Ruby - Data Structures - Linked Lists 
 
 A Ruby implementation of Linked Lists.
 
@@ -20,3 +20,5 @@ A Ruby implementation of Linked Lists.
   - to_s: returns string representation of linked list.
   - insert_at(index, node): Inserts Node at given index within list. At the front of the list if index is < 1 or at the end if index is > list size.
   - remove_at(index): Removes node at given index within list. Removes the first node if index is < 1 or removes last node if given index is > list size.
+
+  
