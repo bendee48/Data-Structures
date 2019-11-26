@@ -52,7 +52,6 @@ class Node
     def delete(value)
       values = level_order
       values.delete(value)
-      #self.root = nil
       build_tree(values)
     end
    
@@ -108,22 +107,18 @@ class Node
       depth(node.right, count + 1, arr)
     end
   
-    def balanced?(tree)
-      left = depth(tree.left, 0, [])
-      right = depth(tree.right, 0, [])
+    def balanced?
+      left = depth(root.left, 0, [])
+      right = depth(root.right, 0, [])
+      return true if left.nil? || right.nil?
       (left - right).abs <= 1
     end
   
-    def rebalance(tree)
-      new_tree = inorder(tree, [])
+    def rebalance
+      new_tree = inorder(root, [])
       new_tree = new_tree.rotate(new_tree.size / 2)
       build_tree(new_tree)
     end
     
   end
 
-pop = Tree.new
-
-pop.build_tree([6, 7, 4, 23, 8, 33, 2, 5])
-pop.delete(33, pop.root)
-p pop
