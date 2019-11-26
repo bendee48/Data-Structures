@@ -4,9 +4,9 @@
 
 **A Ruby implementation of Linked Lists.**
 
-- `#Node.new(value)` instantiates a new node with given value.
+- `Node.new(value)` instantiates a new node with given value.
 
-- `#LinkedList.new` instantiates a new linked list.
+- `LinkedList.new` instantiates a new linked list.
 
 - **Available LinkedList methods:**
 
@@ -26,10 +26,10 @@
 
   **A Ruby implementation of a binary search tree.**
 
-  - `#Node.new(data)` instantiates a new node with `@data`, `@right` and `@left` instance variables.
+  - `Node.new(data)` instantiates a new node with `@data`, `@right` and `@left` instance variables.
     - Node instances can be compared directly without having to access their data value.
 
-  - `#Tree.new` instantiates a new Tree instance. Sets `@root` variable to nil.
+  - `Tree.new` instantiates a new Tree instance. Sets `@root` variable to nil.
 
   **Available Tree methods:**
 
