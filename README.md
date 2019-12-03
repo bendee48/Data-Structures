@@ -48,5 +48,14 @@
 - `#balanced?`: Returns whether the tree is balanced or not.
 - `#rebalance`: Rebalances the binary tree.
 
+## Ruby - Data Structures - Knight's Travails
+
+- This project looked at combining my knowledge of binary search trees and search algorithms to produce a method that returns the quickest possible route of a knight chess piece from one point on the board to another.
+
+-  `Knight.new` instatiates a new Knight object.
+
+**Available Knight methods:**
+
+- `#knight_moves(start, finish)`: Accepts a starting position on the chess board and a target end point. Board positioning comes in the form of x & y *(0 - 7)* coordinates in an array eg ([1,2], [4,7]). The method will return the shortest path to the target.
 
 

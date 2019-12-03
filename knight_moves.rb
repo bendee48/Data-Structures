@@ -17,7 +17,9 @@ class Knight
   end
 
   def knight_moves(start, finish)
-    return puts "Invalid board position. Please enter coordinates between 0 - 7." if !valid_moves?(start, finish)
+    if !valid_moves?(start, finish)
+      return puts "Invalid board position. Please enter coordinates between 0 - 7." 
+    end
     node = search(start, finish)
     moves = node.predecessor.reverse << node.position
     puts "You made it in #{moves.count} moves. Here's your path:"
@@ -25,10 +27,14 @@ class Knight
     nil
   end
 
+  private
+
   def possible_moves(move_node)
     knight = move_node.position.cycle
     moves = [-2, -1, -1, -2, 1, -2, 2, -1, 2, 1, 1, 2, -1, 2, -2, 1]
-    move_node.next_moves = moves.each_slice(2).map { |x, y| MoveNode.new([x + knight.next, y + knight.next]) }.select { |node| (0..7) === node.position[0] && (0..7) === node.position[1]  }
+    move_node.next_moves = moves.each_slice(2)
+                                .map { |x, y| MoveNode.new([x + knight.next, y + knight.next]) }
+                                .select { |node| (0..7) === node.position[0] && (0..7) === node.position[1] }
   end
 
   def search(start, target)
