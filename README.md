@@ -50,7 +50,7 @@
 
 ## Ruby - Data Structures - Knight's Travails
 
-**This project looked at combining my knowledge of binary search trees and search algorithms to produce a method that returns the quickest possible route of a knight chess piece from one point on the board to another.**
+**This project looked at combining my knowledge of binary search trees and search algorithms to produce a method that returns the quickest possible route of a knight chess piece from one point on a chess board to  the other.**
 
 -  `Knight.new` instatiates a new Knight object.
 
